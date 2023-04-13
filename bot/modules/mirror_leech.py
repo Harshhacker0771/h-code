@@ -32,15 +32,15 @@ def _mirror_leech(bot, message, isZip=False, extract=False, isQbit=False, isLeec
             b_uname = bot_d.username
             uname = message.from_user.mention_html(message.from_user.first_name)
             botstart = f"http://t.me/{b_uname}"
-            buttons.buildbutton("Click Here to Start Me", f"{botstart}")
-            startwarn = f"<b>Dear {uname}, Start me in PM to use me.</b>"
+            buttons.buildbutton("🌹Click Here to Start Me🌹", f"{botstart}")
+            startwarn = f"<b>Dear {uname}, Start me in PM to use me🌻.</b>"
             mesg = sendMarkup(startwarn, bot, message, buttons.build_menu(2))
             sleep(15)
             mesg.delete()
             message.delete()
             return
     if message.chat.type == 'private' and len(LEECH_LOG) == 0 and isLeech and MAX_SPLIT_SIZE == 4194304000:
-        text = f"Leech Log is Empty you Can't use bot in PM."
+        text = f"💀Leech Log is Empty you Can't use bot in PM💀."
         sendMessage(text, bot, message)
         return
     mesg = message.text.split('\n')
