@@ -132,16 +132,16 @@ def get_readable_message():
                 globals()['COUNT'] -= STATUS_LIMIT
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
-            msg += f"<b>Name:</b> <code>{escape(str(download.name()))}</code>"
-            msg += f"\n<b>Status:</b> <i>{download.status()}</i> | {download.eng()}"
+            msg += f"<b>🥀Name:</b> <code>{escape(str(download.name()))}</code>"
+            msg += f"\n<b>📡Status:</b> <i>{download.status()}</i> | {download.eng()}"
             if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
                 msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
-                msg += f"\n<b>Processed:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n<b>Speed:</b> {download.speed()} | <b>ETA:</b> {download.eta()}"
-                msg += f"\n<b>Time Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<b>📈Processed:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                msg += f"\n<b>☢️Speed:</b> {download.speed()} | <b>ETA:</b> {download.eta()}"
+                msg += f"\n<b>⛓️Time Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
                 if hasattr(download, 'seeders_num'):
                     try:
-                        msg += f"\n<b>Seeders:</b> {download.seeders_num()} | <b>Leechers:</b> {download.leechers_num()}"
+                        msg += f"\n<b>📦Seeders:</b> {download.seeders_num()} | <b>🚸Leechers:</b> {download.leechers_num()}"
                     except:
                         pass
 
@@ -185,9 +185,9 @@ def get_readable_message():
                     up_speed += float(spd.split('K')[0]) * 1024
                 elif 'M' in spd:
                     up_speed += float(spd.split('M')[0]) * 1048576
-        bmsg = f"<b>CPU:</b> {cpu_percent()}% | <b>FREE:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
-        bmsg += f"\n<b>RAM:</b> {virtual_memory().percent}% | <b>UPTIME:</b> {get_readable_time(time() - botStartTime)}"
-        bmsg += f"\n<b>DL:</b> {get_readable_file_size(dl_speed)}/s | <b>UL:</b> {get_readable_file_size(up_speed)}/s"
+        bmsg = f"<b>🎮CPU:</b> {cpu_percent()}% | <b>☣️FREE:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
+        bmsg += f"\n<b>♨️RAM:</b> {virtual_memory().percent}% | <b>🌻UPTIME:</b> {get_readable_time(time() - botStartTime)}"
+        bmsg += f"\n<b>📥DL:</b> {get_readable_file_size(dl_speed)}/s | <b>📤UL:</b> {get_readable_file_size(up_speed)}/s"
         buttons = ButtonMaker()
         buttons.sbutton("Statistics", str(FOUR))
         sbutton = buttons.build_menu(1)
