@@ -33,7 +33,7 @@ def _mirror_leech(bot, message, isZip=False, extract=False, isQbit=False, isLeec
             uname = message.from_user.mention_html(message.from_user.first_name)
             botstart = f"http://t.me/{b_uname}"
             buttons.buildbutton("🌹Click Here to Start Me🌹", f"{botstart}")
-            startwarn = f"<b>Dear {uname}, Start me in PM to use me🌻.</b>"
+            startwarn = f"<b>🥀Dear {uname}, Start me in PM to use me🌻.</b>"
             mesg = sendMarkup(startwarn, bot, message, buttons.build_menu(2))
             sleep(15)
             mesg.delete()
